@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { EditorToolbar } from "./EditorToolbar";
-import { cn } from "../../utils/utils";
+import { cn } from "../utils/utils";
 
 export function TipTapEditor({ content, onChange }) {
   const editor = useEditor({

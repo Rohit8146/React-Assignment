@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../utils/utils";
+import { cn } from "../utils/utils";
 
 export const Heading = ({ children, level = 1, className, ...props }) => {
   const Tag = `h${level}`;

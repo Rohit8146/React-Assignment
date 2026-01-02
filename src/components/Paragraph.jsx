@@ -1,4 +1,4 @@
-import { cn } from "../../utils/utils";
+import { cn } from "../utils/utils";
 
 export const Paragraph = ({ children, className, ...props }) => {
   return (

@@ -1,6 +1,6 @@
-import { Heading } from "../ui/Heading";
-import { Paragraph } from "../ui/Paragraph";
-import { HEADER_TEXT } from "../../constants/data";
+import { Heading } from "./Heading";
+import { Paragraph } from "./Paragraph";
+import { HEADER_TEXT } from "../constants/data";
 
 export const TodoHeader = () => (
   <header className="mb-8">

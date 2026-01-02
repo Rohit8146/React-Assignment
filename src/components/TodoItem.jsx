@@ -9,10 +9,10 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-import { Button } from "../ui/Button";
-import { Heading } from "../ui/Heading";
-import { Paragraph } from "../ui/Paragraph";
-import { cn } from "../../utils/utils";
+import { Button } from "./Button";
+import { Heading } from "./Heading";
+import { Paragraph } from "./Paragraph";
+import { cn } from "../utils/utils";
 
 export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,12 +20,11 @@ export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
   return (
     <div
       className={cn(
-        "group relative rounded-xl border-gray-400 bg-white shadow-sm transition-all duration-200 hover:shadow-md",
+        "group relative rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md",
         todo.status === "done" && "opacity-75 bg-gray-50"
       )}
     >
-      <div className="flex items-center p-4 py-6 gap-4">
-        {/* Toggle Status Button */}
+      <div className="flex items-center p-4 py-6 gap-2">
         <Button
           className={cn(
             "h-4 w-4 p-0 mr-2 rounded-full hover:bg-gray-100 bg-transparent border-none shadow-none",
@@ -40,7 +39,6 @@ export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
           )}
         </Button>
 
-        {/* Content Click Area */}
         <div
           className="flex-1 min-w-0 cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
@@ -58,7 +56,7 @@ export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
             </Heading>
 
             {isToday(new Date(todo.createdAt)) && (
-              <span className="inline-flex items-center rounded-full border border-transparent bg-slate-100 px-2.5 py-0.5 text-[8px] font-bold uppercase text-slate-900">
+              <span className="inline-flex items-center rounded-full border border-transparent bg-green-100 px-2.5 py-0.5 text-[8px] font-bold uppercase text-slate-900">
                 Today
               </span>
             )}
@@ -69,7 +67,6 @@ export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
           </Paragraph>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
           <Button
             onClick={() => onEdit(todo)}

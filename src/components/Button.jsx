@@ -1,5 +1,5 @@
 
-import { cn } from "../../utils/utils";
+import { cn } from "../utils/utils";
 
 export const Button = ({ children, className, ...props }) => {
   return (

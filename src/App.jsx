@@ -1,10 +1,10 @@
 import React from "react";
 import { useTodos } from "./hooks/useTodos";
-import { TodoHeader } from "./components/todo/TodoHeader";
-import { TodoFilter } from "./components/todo/TodoFilter";
-import { TodoForm } from "./components/todo/TodoForm";
-import { TodoItem } from "./components/todo/TodoItem";
-import { EmptyState } from "./components/todo/EmptyState";
+import { TodoHeader } from "./components/TodoHeader";
+import { TodoFilter } from "./components/TodoFilter";
+import { TodoForm } from "./components/TodoForm";
+import { TodoItem } from "./components/TodoItem";
+import { EmptyState } from "./components/EmptyState";
 
 export default function App() {
   const {
@@ -48,7 +48,7 @@ export default function App() {
           />
         )}
 
-        <div className="grid gap-4">
+        <div className="grid gap-2">
           {todos.length === 0 ? (
             <EmptyState />
           ) : (

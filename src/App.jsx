@@ -22,11 +22,11 @@ export default function App() {
     closeForm,
   } = useTodos();
 
-  const handleFormSubmit = (title, description) => {
+  const handleFormSubmit = (title, description, duedate, status) => {
     if (editingTodo) {
-      updateTodo(editingTodo.id, title, description);
+      updateTodo(editingTodo.id, title, description, duedate, status);
     } else {
-      addTodo(title, description);
+      addTodo(title, description, duedate, status);
     }
   };
 
@@ -45,6 +45,7 @@ export default function App() {
             initialData={editingTodo}
             onSave={handleFormSubmit}
             onCancel={closeForm}
+            onToggle={toggleStatus}
           />
         )}
 

@@ -62,8 +62,14 @@ export const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
             )}
           </div>
           <Paragraph className="text-[10px] flex items-center gap-1 mt-0.5">
+            Created Date:
             <Calendar className="h-3 w-3" />
             {format(new Date(todo.createdAt), "MMM d, h:mm a")}
+          </Paragraph>
+          <Paragraph className="text-[10px] flex items-center gap-1 mt-0.5">
+            Due date:
+            <Calendar className="h-3 w-3" />
+            {todo.dueDate}
           </Paragraph>
         </div>
 

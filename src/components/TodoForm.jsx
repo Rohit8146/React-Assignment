@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { TipTapEditor } from "./TipTapEditor";
 import { Button } from "./Button";
 import { Heading } from "./Heading";
+import Switch from "@mui/material/Switch";
 
-export const TodoForm = ({ initialData, onSave, onCancel }) => {
+export const TodoForm = ({ initialData, onSave, onCancel, onToggle, todo }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [duedate, setDueDate] = useState("");
+  const [status ,  setStatus] = useState('pending')
 
   useEffect(() => {
     if (initialData) {
@@ -20,8 +23,14 @@ export const TodoForm = ({ initialData, onSave, onCancel }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-    onSave(title, description);
+    onSave(title, description, duedate, status);
   };
+
+  const handleStatus = (e) => {
+    e.target.checked ? setStatus("done") : setStatus("pending")
+  }
+
+  
 
   return (
     <div className="mb-8 rounded-xl border border-gray-200 bg-white shadow-xl animate-in fade-in slide-in-from-top-4 duration-300 overflow-hidden">
@@ -50,6 +59,26 @@ export const TodoForm = ({ initialData, onSave, onCancel }) => {
             Description
           </label>
           <TipTapEditor content={description} onChange={setDescription} />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-[13px] font-semibold text-black-700">
+            Due Date
+            <input
+              className="border roundeed-sm"
+              type="date"
+              onChange={(e) => setDueDate(e.target.value)}
+              value={duedate}
+            />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Pending
+            <Switch size="small" onChange={(e) => handleStatus(e)} />
+            Done
+          </label>
         </div>
 
         <div className="flex justify-end gap-3 pt-2">

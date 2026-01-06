@@ -27,7 +27,7 @@ export default function App() {
       updateTodo(editingTodo.id, title, description, duedate, status);
     } else {
       addTodo(title, description, duedate, status);
-    }
+    } 
   };
 
   return (
